@@ -1,0 +1,30 @@
+{
+  "name": "merge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitsanavni/merge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitsanavni/merge/issues"
+  },
+  "homepage": "https://github.com/nitsanavni/merge#readme",
+  "dependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/lodash": "^4.14.149",
+    "@types/puppeteer": "^2.0.0",
+    "ava": "^3.3.0",
+    "inquirer": "^7.0.4",
+    "lodash": "^4.17.15",
+    "puppeteer": "^2.1.1",
+    "typescript": "^3.7.5"
+  }
+}
