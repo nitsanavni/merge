@@ -7,7 +7,7 @@
         "build": "tsc --build tsconfig.json",
         "clean": "git clean -dfxq test/",
         "pretest": "npm run build",
-        "test": "ava test/*"
+        "test": "ava **.spec.js"
     },
     "repository": {
         "type": "git",
