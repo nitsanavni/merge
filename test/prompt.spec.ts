@@ -37,8 +37,6 @@ async function validateChildCli({ t, childCmd, QnASequence }: Params) {
 
             const { Q, A } = QnASequence[dataCount];
 
-            console.log("Y " + outData);
-
             if (!outData.toString().includes(Q)) {
                 return;
             }
