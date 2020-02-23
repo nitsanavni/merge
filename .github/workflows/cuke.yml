@@ -1,0 +1,14 @@
+name: feature tests
+
+on: [push]
+
+jobs:
+    feature-tests:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: install
+              run: npm ci
+            - name: feature tests
+              run: npm run cuke

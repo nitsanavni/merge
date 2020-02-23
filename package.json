@@ -7,7 +7,11 @@
         "build": "tsc --build tsconfig.json",
         "clean": "git clean -dfxq test/",
         "pretest": "npm run build",
-        "test": "ava **.spec.js"
+        "test": "npm run unittest",
+        "unittest": "ava **.spec.js",
+        "cucumber-js": "cucumber-js",
+        "precuke": "npm run build",
+        "cuke": "npm run cucumber-js -- -f node_modules/cucumber-pretty --require steps/"
     },
     "repository": {
         "type": "git",
