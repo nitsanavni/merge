@@ -3,11 +3,12 @@ name: unit tests
 on: [push]
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: unit tests
-      run: npm test
+        steps:
+            - uses: actions/checkout@v2
+            - name: install
+              run: npm ci
+            - name: unit tests
+              run: npm test
