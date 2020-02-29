@@ -37,7 +37,7 @@ const drive = (scriptDescriptor: string, params?: string) => {
                     return;
                 }
 
-                if (out.includes("(Use arrow keys)")) {
+                if (out.includes("❯ ")) {
                     if (new RegExp(`❯ .*${A}`).test(out)) {
                         child.stdin!.write("\r\n");
                     } else {
@@ -81,7 +81,7 @@ When("driving {string}", function(scriptDescriptor: string) {
     this.driverChild = drive(scriptDescriptor);
 });
 
-Then("expect back and forth", async function(backAndForth: TableDefinition) {
+Then("expect back and forth", { timeout: 20 * 1000 }, async function(backAndForth: TableDefinition) {
     await this.driverChild.expectQnA(backAndForth.hashes());
 });
 

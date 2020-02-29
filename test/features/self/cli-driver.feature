@@ -17,21 +17,22 @@ Feature: CLI Driver
             """
             import { prompt } from "inquirer";
             import { inspect } from "util";
+            import { map, range } from "lodash";
 
             export const ask = async () => {
             /**/ const ans = await prompt({
             /**//**/type: "list",
-            /**//**/choices: ["option a", "option b", "option c"],
-            /**//**/name: "ourQ",
-            /**//**/message: "which option?"
+            /**//**/choices: map(range(100), (i) => `${i}`),
+            /**//**/name: "life",
+            /**//**/message: "answer to life"
             /**/});
 
-            /**/console.log(`your choice: ${inspect(ans)}`);
+            /**/console.log(`answer to: ${inspect(ans)}`);
             };
 
             """
         When  driving "test-interactive-cli.ts#ask"
         Then  expect back and forth
-            | Q                                 | A        |
-            | which option?                     | option b |
-            | your choice: { ourQ: 'option b' } |          |
+            | Q                         | A  |
+            | answer to life            | 42 |
+            | answer to: { life: '42' } |    |
