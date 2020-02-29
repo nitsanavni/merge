@@ -5,7 +5,7 @@ import * as fs from "fs";
 import { QnA } from "../../types/qa";
 
 const shell = (cmd: string) => new Promise((r) => exec(cmd).on("close", r));
-const cleanTempFiles = () => shell("git clean -dfxq -- steps/temp/");
+const cleanTempFiles = () => shell("git clean -dfxq -- test/steps/temp/");
 const build = () => shell("npm run build");
 
 Before(cleanTempFiles);
@@ -13,7 +13,7 @@ Before(cleanTempFiles);
 After(cleanTempFiles);
 
 const drive = (scriptDescriptor: string, params?: string) => {
-    const child = exec(`node ./utils/our-driver.js ${scriptDescriptor} ${params || ""}`);
+    const child = exec(`node ./test/utils/our-driver.js ${scriptDescriptor} ${params || ""}`);
 
     const onFail = (cb: () => void) => child.on("error", cb);
     const expectQnA = (QnASequence: QnA[], verbose = false) => {
@@ -67,12 +67,12 @@ const drive = (scriptDescriptor: string, params?: string) => {
 };
 
 Given("cli file {string}", async function(cliFileName: string, fileContents: string) {
-    await new Promise((r) => fs.writeFile(`./steps/temp/${cliFileName}`, fileContents, r));
+    await new Promise((r) => fs.writeFile(`./test/steps/temp/${cliFileName}`, fileContents, r));
     await build();
 });
 
 When("driving {string} with", async function(scriptDescriptor: string, params: TableDefinition) {
-    const child = exec(`node ./utils/our-driver.js ${scriptDescriptor} ${params.raw()[0].join(" ")}`);
+    const child = exec(`node ./test/utils/our-driver.js ${scriptDescriptor} ${params.raw()[0].join(" ")}`);
 
     this.output = await new Promise((resolve) => child.stdout!.on("data", resolve));
 });
