@@ -66,7 +66,7 @@ const drive = (scriptDescriptor: string, params?: string) => {
     };
 };
 
-Given("cli file {string}", async function(cliFileName: string, fileContents: string) {
+Given("cli file {string}", { timeout: 60 * 1000 }, async function(cliFileName: string, fileContents: string) {
     await new Promise((r) => fs.writeFile(`./test/steps/temp/${cliFileName}`, fileContents, r));
     await build();
 });
