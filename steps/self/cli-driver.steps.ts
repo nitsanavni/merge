@@ -22,6 +22,10 @@ When("driving {string} with", async function(scriptDescriptor: string, params: T
     this.output = await new Promise((resolve) => child.stdout!.on("data", resolve));
 });
 
+When("driving {string}", async function(scriptDescriptor: string) {
+    this.driverChild = exec(`node ./utils/our-driver.js ${scriptDescriptor}`);
+});
+
 Then("output is", function(expectedOutput: string) {
     expect(this.output).to.include(expectedOutput);
 });
