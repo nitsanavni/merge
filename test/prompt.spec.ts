@@ -1,5 +1,6 @@
 import test, { ExecutionContext } from "ava";
 import { exec } from "child_process";
+import { QnA } from "../types/qa";
 
 test("prompt sequence", async (t) => {
     t.timeout(50000);
@@ -13,8 +14,6 @@ test("prompt sequence", async (t) => {
         ]
     });
 });
-
-type QnA = { Q: string; A: string };
 
 type Params = {
     t: ExecutionContext;

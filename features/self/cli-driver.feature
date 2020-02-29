@@ -12,7 +12,7 @@ Feature: CLI Driver
             hello world
             """
 
-    Scenario: Test an Intersctive Script
+    Scenario: Test an Interactive Script
         Given cli file "test-interactive-cli.ts"
             """
             import { prompt } from "inquirer";
@@ -31,7 +31,7 @@ Feature: CLI Driver
 
             """
         When  driving "test-interactive-cli.ts#ask"
-        Then  expect the following back and forth
-            | Q                                   | A        |
-            | which option?                       | option b |
-            | your choice: { "ourQ": "option b" } |          |
+        Then  expect back and forth
+            | Q                                 | A        |
+            | which option?                     | option b |
+            | your choice: { ourQ: 'option b' } |          |
