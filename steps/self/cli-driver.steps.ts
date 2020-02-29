@@ -7,7 +7,7 @@ Given("cli file {string}", async function(cliFileName: string, fileContents: str
 });
 
 When("driving {string} with", async function(scriptDescriptor: string, params: TableDefinition) {
-    const child = exec(`node ./temp/our-driver.js ${scriptDescriptor} ${params.raw()[0].join(" ")}`);
+    const child = exec(`node ./utils/our-driver.js ${scriptDescriptor} ${params.raw()[0].join(" ")}`);
 
     const out = await new Promise((r) => child.stdout!.on("data", r));
 
