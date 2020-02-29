@@ -1,6 +1,6 @@
 import test, { ExecutionContext } from "ava";
 import { exec } from "child_process";
-import { QnA } from "../types/qa";
+import { QnA } from "./types/qa";
 
 test("prompt sequence", async (t) => {
     t.timeout(50000);

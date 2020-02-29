@@ -11,7 +11,7 @@
         "unittest": "ava **.spec.js",
         "cucumber-js": "cucumber-js",
         "precuke": "npm run build",
-        "cuke": "npm run cucumber-js -- -f node_modules/cucumber-pretty --require steps/"
+        "cuke": "npm run cucumber-js -- -f node_modules/cucumber-pretty --require test/steps/"
     },
     "repository": {
         "type": "git",
