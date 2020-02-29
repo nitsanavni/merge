@@ -11,4 +11,4 @@ jobs:
             - name: install
               run: npm ci
             - name: feature tests
-              run: npm run cuke
+              run: npm run cuke -- test/features/
